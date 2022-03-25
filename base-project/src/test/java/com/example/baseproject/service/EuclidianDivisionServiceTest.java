@@ -2,6 +2,8 @@ package com.example.baseproject.service;
 
 import com.example.baseproject.model.EuclideResult;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -37,6 +39,7 @@ public class EuclidianDivisionServiceTest {
     }
 
     @Test
+    @Tag("test tags")
     public void shouldDoAnEuclidianDivisionwithNoQuotien() {
         EuclideResult euclideResult = euclidianDivisionService.divide(3, 5);
         assertNotNull(euclideResult);
@@ -47,6 +50,10 @@ public class EuclidianDivisionServiceTest {
     }
 
     @Test
+    @Tags(value = {
+            @Tag("test tags"),
+            @Tag("another tag")
+    })
     public void shouldDoAnEuclidianDivisionWhenDivideByZero() {
         EuclideResult euclideResult = euclidianDivisionService.divide(125, 0);
         assertNotNull(euclideResult);
